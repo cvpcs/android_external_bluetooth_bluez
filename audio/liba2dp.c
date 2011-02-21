@@ -1258,3 +1258,9 @@ void a2dp_cleanup(a2dpData d)
 	DBG("a2dp_cleanup\n");
 	set_command(data, A2DP_CMD_QUIT);
 }
+
+#ifdef SHADOW_HARDWARE
+// stubs for motorola shadow-based hardware (DX/D2/etc)
+void a2dp_reconfigure(int codec, uint32_t bitrate, int rate, int channels, a2dpData d) { return; }
+int a2dp_get_codec_supported(a2dpData data, int codec) { return 0; }
+#endif

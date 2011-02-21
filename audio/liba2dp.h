@@ -34,6 +34,12 @@ int a2dp_write(a2dpData data, const void* buffer, int count);
 int a2dp_stop(a2dpData data);
 void a2dp_cleanup(a2dpData data);
 
+#ifdef SHADOW_HARDWARE
+// stubs for motorola shadow-based hardware (DX/D2/etc)
+void a2dp_reconfigure(int codec, uint32_t bitrate, int rate, int channels, a2dpData d);
+int a2dp_get_codec_supported(a2dpData d, int codec);
+#endif //SHADOW_HARDWARE
+
 #ifdef __cplusplus
 }
 #endif
